@@ -6,13 +6,10 @@ import jakarta.persistence.*;
 @Table (name="client")
 public class ClientEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name="name")
     private String name;
-    @Column(name="gender")
     private String gender;
-    @Column(name="address")
     private String address;
 
     public ClientEntity() {
