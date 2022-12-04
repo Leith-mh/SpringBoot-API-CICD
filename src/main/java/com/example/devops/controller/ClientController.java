@@ -6,7 +6,6 @@ import com.example.devops.service.ClientService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 @RestController
