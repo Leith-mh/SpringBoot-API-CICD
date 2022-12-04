@@ -1,10 +1,9 @@
 package com.example.devops.service;
 
-import com.example.devops.entity.BookEntity;
-import com.example.devops.entity.ClientEntity;
-
 import java.util.List;
 import java.util.Optional;
+import com.example.devops.entity.BookEntity;
+
 
 public interface BookService {
     List<BookEntity> findAllBooks();
