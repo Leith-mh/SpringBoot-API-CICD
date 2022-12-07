@@ -5,7 +5,7 @@ pipeline {
      maven  'maven'
     }
        environment {
-           NEXUS_URL="http://13.41.247.78:8081"
+           NEXUS_URL="13.41.247.78:8081"
            NEXUS_VERSION = "nexus3"
            NEXUS_PROTOCOL = "http"
            NEXUS_REPOSITORY = "devops"
@@ -39,6 +39,7 @@ pipeline {
         stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
+                    
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
