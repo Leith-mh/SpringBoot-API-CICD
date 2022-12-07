@@ -5,19 +5,14 @@ pipeline {
      maven  'maven'
     }
        environment {
-        
-   
-        
-    }
+        }
     stages {
         stage("init") {
             steps {
                 script {
-                    echo "hello"
+                    gv = load "functions.groovy"
                 }
             }
         }
-     
-    
-      
+    }
 }
