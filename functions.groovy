@@ -14,3 +14,4 @@ def buildJar() {
     echo 'building the application...'
     sh 'cat pom.xml'
 } 
+return this
