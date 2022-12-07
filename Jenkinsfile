@@ -15,5 +15,22 @@ pipeline {
                 }
             }
         }
+         stage("get code") {
+            steps {
+                script {
+                   
+                 gv.cloneCode()
+                }
+            }
+        }
+        
+         stage("Build artifact") {
+            steps {
+                script {
+                   
+                 gv.buildJar()
+                }
+            }
+        }
     }
 }
