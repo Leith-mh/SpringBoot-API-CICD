@@ -13,6 +13,6 @@ def cloneCode() {
 def buildJar() {
     echo 'building the application...'
     //sh 'mvn -f ./pom.xml clean package'
-    maven -version
+    sh 'mvn -version'
 } 
 return this
