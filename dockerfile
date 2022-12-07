@@ -3,9 +3,7 @@ COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
-#
-# Package stage
-#
+
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/devops-*.jar /usr/local/lib/devops-*.jar
 EXPOSE 8080
