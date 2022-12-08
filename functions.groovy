@@ -10,6 +10,11 @@ def cloneCode() {
            // Checkout to a specific branch in your repo.
            sh "git checkout master"
 } 
+
+def unitTest() {
+    echo 'building the application...'
+    sh 'mvn test'
+} 
 def buildJar() {
     echo 'building the application...'
     sh 'mvn -f ./pom.xml clean package'
