@@ -35,8 +35,7 @@ def pushImageDocker(String imageName) {
     }
 }
 
-def pushImageNexus(String NEXUS_VERSION,String NEXUS_PROTOCOL,String NEXUS_URL,String NEXUS_REPOSITORY,String NEXUS_CREDENTIAL_ID)
-{
+def pushImageNexus(String NEXUS_VERSION,String NEXUS_PROTOCOL,String NEXUS_URL,String NEXUS_REPOSITORY,String NEXUS_CREDENTIAL_ID) {
   pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
