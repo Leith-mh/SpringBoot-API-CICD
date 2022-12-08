@@ -9,7 +9,8 @@ pipeline {
            NEXUS_VERSION = "nexus3"
            NEXUS_PROTOCOL = "http"
            NEXUS_REPOSITORY = "devops"
-        NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+           NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
+           IMAGE_NAME="leithmhf/devops:${BUILD_NUMBER}"
         }
     stages {
         stage("init") {
@@ -80,6 +81,14 @@ pipeline {
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
+                }
+            }
+        }
+              stage("build docker image and push to dockerhub") {
+            steps {
+                script {
+                  
+                   gv.buildImage(env.IMAGE_NAME)
                 }
             }
         }
