@@ -71,5 +71,13 @@ pipeline {
                 }
             }
         }
+       
+        stage("deploy API") {
+            steps {
+                script {
+                    gv.deploy()
+                }
+            }
+        }
     }
 }
