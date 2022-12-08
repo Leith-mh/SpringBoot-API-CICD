@@ -30,6 +30,14 @@ pipeline {
                    -Dsonar.login=c6b7d8e141bf20018e908762382a4649baac9696'              }
             }
         }
+             
+         stage("unit tests") {
+             steps {
+                 script {
+                     gv.unitTest()
+                 }
+             }
+         }
 
         stage("get code") {
             steps {
