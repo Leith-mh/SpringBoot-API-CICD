@@ -20,6 +20,16 @@ pipeline {
                 }
             }
         }
+        
+        stages {
+        stage("unit tests") {
+            steps {
+                script {
+                    gv.unitTest()
+                }
+            }
+        }
+        
          stage("sonar test") {
             steps {
                 script {
