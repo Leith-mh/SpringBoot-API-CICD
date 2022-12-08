@@ -25,15 +25,6 @@ def buildImage(String imageName) {
     sh " docker build -t $imageName ."
 }
 
-def pushImageDocker(String imageName) {
-   echo 'pushing the docker image to dockerhub'
-   withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        //login to dockerhub
-        sh "echo $PASS |  docker login -u $USER --password-stdin"
-        //pushing the image to dockerhub
-        sh " docker push $imageName"
-    }
-}
 
 def pushImageNexus(String NEXUS_VERSION,String NEXUS_PROTOCOL,String NEXUS_URL,String NEXUS_REPOSITORY,String NEXUS_CREDENTIAL_ID) {
   pom = readMavenPom file: "pom.xml";
@@ -66,5 +57,16 @@ def pushImageNexus(String NEXUS_VERSION,String NEXUS_PROTOCOL,String NEXUS_URL,S
                         error "*** File: ${artifactPath}, could not be found";
                     }
 }
+
+def pushImageDocker(String imageName) {
+   echo 'pushing the docker image to dockerhub'
+   withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+        //login to dockerhub
+        sh "echo $PASS |  docker login -u $USER --password-stdin"
+        //pushing the image to dockerhub
+        sh " docker push $imageName"
+    }
+}
+
    
 return this
