@@ -22,21 +22,20 @@ pipeline {
         }
         
         stages {
-        stage("unit tests") {
-            steps {
-                script {
-                    gv.unitTest()
-                }
-            }
-        }
-        
-         
         
         stage("get code") {
             steps {
                 script {
                    
                  gv.cloneCode()
+                }
+            }
+        }
+            
+         stage("unit tests") {
+            steps {
+                script {
+                    gv.unitTest()
                 }
             }
         }
