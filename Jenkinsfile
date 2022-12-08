@@ -13,6 +13,7 @@ pipeline {
            IMAGE_NAME="leithmhf/devops:${BUILD_NUMBER}"
         }
     stages {
+        
         stage("init") {
             steps {
                 script {
@@ -20,6 +21,7 @@ pipeline {
                 }
             }
         }
+
         
         stages {
         
@@ -94,4 +96,4 @@ pipeline {
         }
     }
 }
-}
+
