@@ -19,7 +19,18 @@ pipeline {
                 }
             }
         }
-         stage("get code") {
+         stage("sonar test") {
+            steps {
+                script {
+                   
+                mvn sonar:sonar \
+                   -Dsonar.projectKey=devop \
+                   -Dsonar.host.url=http://18.130.219.36:9000 \
+                   -Dsonar.login=c6b7d8e141bf20018e908762382a4649baac9696                }
+            }
+        }
+        
+        stage("get code") {
             steps {
                 script {
                    
