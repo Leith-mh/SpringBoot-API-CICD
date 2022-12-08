@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
 
-                    gv.pushImageNexus(env.NEXUS_VERSION,env.NEXUS_PROTOCOL,env.NEXUS_URL,env.NEXUS_REPOSITORY,env.NEXUS_CREDENTIALS_ID)
+                    gv.pushImageNexus(env.NEXUS_VERSION,env.NEXUS_PROTOCOL,env.NEXUS_URL,env.NEXUS_REPOSITORY,env.NEXUS_CREDENTIAL_ID)
                       
                 }
             }
