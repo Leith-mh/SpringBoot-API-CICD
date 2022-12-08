@@ -13,7 +13,6 @@ pipeline {
            IMAGE_NAME="leithmhf/devops:${BUILD_NUMBER}"
         }
     stages {
-        
         stage("init") {
             steps {
                 script {
@@ -21,31 +20,30 @@ pipeline {
                 }
             }
         }
+         stage("sonar test") {
+            steps {
+                script {
 
-        
-        stages {
-        
+                sh 'mvn sonar:sonar \
+                   -Dsonar.projectKey=devop \
+                   -Dsonar.host.url=http://18.130.219.36:9000 \
+                   -Dsonar.login=c6b7d8e141bf20018e908762382a4649baac9696'              }
+            }
+        }
+
         stage("get code") {
             steps {
                 script {
-                   
+
                  gv.cloneCode()
                 }
             }
         }
-            
-         stage("unit tests") {
-            steps {
-                script {
-                    gv.unitTest()
-                }
-            }
-        }
-        
+
          stage("Build artifact") {
             steps {
                 script {
-                   
+
                  gv.buildJar()
                 }
             }
@@ -53,7 +51,7 @@ pipeline {
         stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
-                    
+
                     pom = readMavenPom file: "pom.xml";
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
@@ -89,11 +87,10 @@ pipeline {
               stage("build docker image and push to dockerhub") {
             steps {
                 script {
-                  
+
                    gv.buildImage(env.IMAGE_NAME)
                 }
             }
         }
     }
 }
-
