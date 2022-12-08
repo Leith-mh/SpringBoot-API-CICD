@@ -68,5 +68,10 @@ def pushImageDocker(String imageName) {
     }
 }
 
+def deploy() {
+   sh "docker compose -f docker-compose.yml down && docker compose -f docker-compose.yml up -d"
+}
+
+
    
 return this
