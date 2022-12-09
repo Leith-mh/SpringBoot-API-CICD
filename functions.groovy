@@ -14,6 +14,14 @@ def cloneCode() {
 def unitTest() {
     echo 'testing the application...'
 } 
+
+def sonarTest() {
+   echo 'testing the application with sonar'
+   sh 'mvn sonar:sonar \
+                   -Dsonar.projectKey=devop \
+                   -Dsonar.host.url=http://18.130.219.36:9000/ \
+                   -Dsonar.login=c6b7d8e141bf20018e908762382a4649baac9696'   
+}
 def buildJar() {
     echo 'building the application...'
     sh 'mvn -f ./pom.xml clean package'
