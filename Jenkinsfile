@@ -91,10 +91,10 @@ pipeline {
         
        
          success {  
-              emailext body: "${committerEmail} has pushed the commit having the Hash: ${GIT_COMMIT} at ${currentDate} successfully ", to: 'leith.mhf@gmail.com' , subject: 'Devops TP '
+              emailext body: "pipeline have been executed successfully ", to: 'leith.mhf@gmail.com' , subject: 'Devops TP '
          }  
          failure {  
-            emailext body: "${committerEmail} has pushed the commit having the Hash: ${GIT_COMMIT} at ${currentDate} and it resulted in failure  ", to: 'leith.mhf@gmail.com', subject: 'Devops TP'
+            emailext body: "pipeline has resulted in failure  ", to: 'leith.mhf@gmail.com', subject: 'Devops TP'
          }  
         }
 }
