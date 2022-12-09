@@ -5,7 +5,7 @@ pipeline {
      maven  'maven'
     }
        environment {
-           NEXUS_URL="13.41.247.78:8081"
+           NEXUS_URL="13.40.184.209:8081"
            NEXUS_VERSION = "nexus3"
            NEXUS_PROTOCOL = "http"
            NEXUS_REPOSITORY = "devops"
