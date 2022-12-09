@@ -19,7 +19,7 @@ def sonarTest() {
    echo 'testing the application with sonar'
    sh 'mvn sonar:sonar \
                    -Dsonar.projectKey=devop \
-                   -Dsonar.host.url=http://18.130.155.117:9000/ \
+                   -Dsonar.host.url=http://ec2-13-42-15-133.eu-west-2.compute.amazonaws.com:9000/ \
                    -Dsonar.login=c6b7d8e141bf20018e908762382a4649baac9696'   
 }
 def buildJar() {
