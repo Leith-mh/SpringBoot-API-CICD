@@ -36,7 +36,14 @@ pipeline {
                      gv.unitTest()
                  }
              }
-         }        
+         }   
+         stage("Sonar Tests") {
+             steps {
+                 script {
+                     gv.sonarTest()
+                 }
+             }
+         } 
 
          stage("Build Artifact") {
             steps {
